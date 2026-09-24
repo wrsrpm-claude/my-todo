@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>รายการสิ่งที่ต้องทำ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <header>
+      <h1>📝 รายการสิ่งที่ต้องทำ</h1>
+      <p class="summary" id="summary"></p>
+    </header>
+
+    <form id="add-form" autocomplete="off">
+      <input id="new-todo" type="text" placeholder="เพิ่มงานใหม่..." maxlength="200" required />
+      <button type="submit">+ เพิ่ม</button>
+    </form>
+
+    <nav class="filters" id="filters">
+      <button data-filter="all" class="active">ทั้งหมด</button>
+      <button data-filter="active">ยังไม่เสร็จ</button>
+      <button data-filter="done">เสร็จแล้ว</button>
+    </nav>
+
+    <ul id="list"></ul>
+    <p class="empty" id="empty">ยังไม่มีรายการ ลองเพิ่มงานแรกดูสิ</p>
+
+    <footer>
+      <button id="clear-done" class="link">ลบรายการที่เสร็จแล้ว</button>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
