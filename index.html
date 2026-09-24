@@ -3,36 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>รายการสิ่งที่ต้องทำ</title>
+  <meta name="theme-color" content="#0f172a" />
+  <title>My Todo — Todo List</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="card">
-    <header>
-      <h1>📝 รายการสิ่งที่ต้องทำ</h1>
-      <p class="summary" id="summary"></p>
-    </header>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">✅</span>
+      <h1 id="app-title" contenteditable="true" spellcheck="false"></h1>
+      <span class="status" id="status" title="บันทึกแล้ว"></span>
+    </div>
+    <div class="overall">
+      <div class="overall-label">
+        <span>ความคืบหน้ารวม</span>
+        <span id="overall-count">0/0 (0%)</span>
+      </div>
+      <div class="bar"><div class="fill" id="overall-fill"></div></div>
+    </div>
+  </header>
 
-    <form id="add-form" autocomplete="off">
-      <input id="new-todo" type="text" placeholder="เพิ่มงานใหม่..." maxlength="200" required />
-      <button type="submit">+ เพิ่ม</button>
+  <main>
+    <h2 id="section-title" contenteditable="true" spellcheck="false"></h2>
+    <div id="jobs"></div>
+
+    <form id="add-job" class="add-job" autocomplete="off">
+      <button type="button" id="add-job-btn">+ เพิ่มจ๊อบ</button>
+      <input id="add-job-input" type="text" placeholder="ชื่อจ๊อบ แล้วกด Enter" maxlength="120" hidden />
     </form>
-
-    <nav class="filters" id="filters">
-      <button data-filter="all" class="active">ทั้งหมด</button>
-      <button data-filter="active">ยังไม่เสร็จ</button>
-      <button data-filter="done">เสร็จแล้ว</button>
-    </nav>
-
-    <ul id="list"></ul>
-    <p class="empty" id="empty">ยังไม่มีรายการ ลองเพิ่มงานแรกดูสิ</p>
-
-    <footer>
-      <button id="clear-done" class="link">ลบรายการที่เสร็จแล้ว</button>
-    </footer>
   </main>
+
+  <template id="job-tpl">
+    <section class="job">
+      <div class="job-head">
+        <button class="toggle" type="button" aria-label="ย่อ/ขยาย">▼</button>
+        <span class="job-name" contenteditable="true" spellcheck="false"></span>
+        <span class="job-count"></span>
+        <button class="remove" type="button" aria-label="ลบจ๊อบ">✕</button>
+      </div>
+      <div class="bar job-bar"><div class="fill"></div></div>
+      <ul class="tasks"></ul>
+      <form class="add-task" autocomplete="off">
+        <input type="text" placeholder="+ เพิ่มรายการงาน" maxlength="200" />
+      </form>
+    </section>
+  </template>
+
   <script src="app.js"></script>
 </body>
 </html>
